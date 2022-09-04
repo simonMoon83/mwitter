@@ -11,7 +11,7 @@ import Navigation from "components/Navigation";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       {isLoggedIn && <Navigation />}
       <Routes>
         {isLoggedIn ? (
