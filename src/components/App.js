@@ -10,6 +10,9 @@ function App() {
       if (user) {
         setUserObj(user);
       }
+      else {
+        setUserObj("");
+      }
       setInit(true);
     });
   }, []);
