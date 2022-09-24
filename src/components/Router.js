@@ -9,15 +9,15 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({ isLoggedIn, userObj }) => {
+const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      {isLoggedIn && <Navigation />}
+      {isLoggedIn && <Navigation userObj={userObj} />}
       <Routes>
         {isLoggedIn ? (
           <>
-            <Route path="/" element={<Home userObj={userObj}/>} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/" element={<Home userObj={userObj} />} />
+            <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser} />} />
           </>
         ) : (
           <>
